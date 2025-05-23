@@ -1,3 +1,51 @@
-<h1>
-    Hellow World
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston House Price Prediction</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+<body style="margin: 0; padding: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1590247813696-3f58b0f69339?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed; background-size: cover; font-family: 'Arimo', sans-serif; color: #ffffff;">
+    <div style="background: rgba(30, 30, 30, 0.9); padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); width: 100%; max-width: 500px; animation: fadeIn 1s ease-in-out;">
+        <h1 style="font-family: 'Pacifico', cursive; font-size: 36px; text-align: center; color: #00d4ff; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Boston House Price Prediction</h1>
+
+        <form action="{{ url_for('predict') }}" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" name="CRIM" placeholder="CRIM (Per Capita Crime Rate)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="ZN" placeholder="ZN (Residential Land Zoned)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="INDUS" placeholder="INDUS (Non-Retail Business Acres)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="CHAS" placeholder="CHAS (Charles River, 0 or 1)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="NOX" placeholder="NOX (Nitric Oxides, ppm)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="RM" placeholder="RM (Avg. Rooms per Dwelling)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="AGE" placeholder="AGE (Pre-1940 Units, %)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="DIS" placeholder="DIS (Distance to Employment Centers)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="RAD" placeholder="RAD (Highway Accessibility)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="TAX" placeholder="TAX (Property Tax Rate)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="PTRATIO" placeholder="PTRATIO (Pupil-Teacher Ratio)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="B" placeholder="B (Black Population Proportion)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+            <input type="text" name="LSTAT" placeholder="LSTAT (% Lower Status)" required style="padding: 12px; border: none; border-radius: 8px; background: #2a2a2a; color: #ffffff; font-family: 'Hind', sans-serif; font-size: 16px; transition: all 0.3s ease; outline: none;" onfocus="this.style.boxShadow='0 0 10px #00d4ff';" onblur="this.style.boxShadow='none';">
+
+            <button type="submit" style="padding: 15px; border: none; border-radius: 8px; background: linear-gradient(45deg, #00d4ff, #ff4081); color: #ffffff; font-family: 'Open Sans Condensed', sans-serif; font-size: 18px; cursor: pointer; transition: all 0.3s ease; animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1.0)';">Predict</button>
+        </form>
+
+        <div style="margin-top: 20px; text-align: center; font-family: 'Hind', sans-serif; font-size: 18px; color: #00d4ff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">
+            {{ prediction_text }}
+        </div>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 212, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+        }
+    </style>
+</body>
+</html>
